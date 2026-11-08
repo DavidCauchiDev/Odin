@@ -22,8 +22,8 @@ gb_internal bool in_strict_style_packages(AstFile *file) {
 
 	String pkg_name = {};
 
-	if (file->pkg->name.len > 0) {
-		pkg_name = file->pkg->name;
+	if (file->package_name.len > 0) {
+		pkg_name = file->package_name;
 	} else if (file->pkg_decl->kind == Ast_PackageDecl) {
 		Token name_token = file->pkg_decl->PackageDecl.name;
 		if (name_token.kind == Token_Ident) {
@@ -58,8 +58,8 @@ gb_internal bool in_vet_packages(AstFile *file) {
 
 	String pkg_name = {};
 
-	if (file->pkg->name.len > 0) {
-		pkg_name = file->pkg->name;
+	if (file->package_name.len > 0) {
+		pkg_name = file->package_name;
 	} else if (file->pkg_decl->kind == Ast_PackageDecl) {
 		Token name_token = file->pkg_decl->PackageDecl.name;
 		if (name_token.kind == Token_Ident) {
